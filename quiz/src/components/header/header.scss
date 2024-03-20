@@ -1,18 +1,28 @@
+@import "../../../public/variables";
+@import "../../../public/mixins";
+
 .header {
-    background-color: #7174db;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 5px;
+  @include text-styles($text-large, $text-primary-color);
+  background-color: #599adf;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  @media only screen and (max-width: 768px) {
+    margin: 10px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin: 10px;
+  }
 }
 
 .header-content {
-    text-align: center;
-    font-size: 24px;
+  text-align: center;
+  font-size: 24px;
 }
 
 .header h1 {
-    margin: 0;
+  margin: 0;
 }

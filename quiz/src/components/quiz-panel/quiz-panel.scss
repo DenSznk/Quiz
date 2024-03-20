@@ -1,0 +1,51 @@
+@import "../../../public/variables";
+@import "../../../public/mixins";
+
+.quiz-panel {
+    @include text-styles(
+        $text-large,
+        $text-primary-color
+      );
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+    background-color: #599adf;
+    padding: 20px;
+    border-radius: 5px;
+
+    label {
+        margin-left: 20px;
+
+    }
+    .number-of-questions input {
+        @include input-styles(
+            $input-medium,
+            $input-border-color,
+            $input-border-radius
+        )
+
+    }
+    .category input {
+        @include input-styles(
+            $input-large,
+            $input-border-color,
+            $input-border-radius
+        )
+    }
+
+    @media only screen and (max-width: 768px) {
+        margin: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
