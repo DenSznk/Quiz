@@ -1,10 +1,36 @@
+// button colors
 $button-primary-color: #599adf;
 $button-secondary-color: #818c96;
 $button-success-color: #63d87e;
 $button-danger-color: #dc3545;
 
+// button sizes
 $button-small: 30px;
 $button-medium: 40px;
 $button-large: 50px;
 
 $button-border-radius: 5px;
+
+// text sizes
+$text-small: 14px;
+$text-medium: 16px;
+$text-large: 20px;
+$text-extra-large: 24px;
+
+// test colors
+$text-primary-color: #fff;
+$text-secondary-color: #666;
+$text-accent-color: #007bff;
+
+
+// input sizes
+$input-small: 10px;
+$input-medium: 25px;
+$input-large: 50px;
+
+$input-border-color: #007bff;
+$input-background-color: #fff;
+$input-text-color: #333;
+$input-placeholder-color: #999;
+
+$input-border-radius: 3px;
