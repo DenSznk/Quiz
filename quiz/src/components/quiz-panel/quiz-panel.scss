@@ -15,24 +15,25 @@
     padding: 20px;
     border-radius: 5px;
 
+    .container {
+        display: flex;
+        padding: 20px;
+        justify-content: space-between;
+    }
+
     label {
-        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
 
     }
-    .number-of-questions input {
-        @include input-styles(
-            $input-medium,
-            $input-border-color,
-            $input-border-radius
-        )
-
-    }
-    .category input {
+    select {
         @include input-styles(
             $input-large,
             $input-border-color,
             $input-border-radius
         )
+
     }
 
     @media only screen and (max-width: 768px) {
