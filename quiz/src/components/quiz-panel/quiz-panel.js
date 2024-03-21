@@ -3,9 +3,11 @@ import "./quiz-panel.scss"
 function QuizPanel() {
     return (
         <div className="quiz-panel">
-            <label className="number-of-questions"> Number of Questions:
+          <div className="container">
+          <label className="number-of-questions"> Number of Questions:
                 <input type="text"/>
             </label>
+          </div>
             <label className="category"> Category:
                 <input type="text"/>
             </label>

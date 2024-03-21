@@ -3,11 +3,11 @@ import './buttons-panel.scss'
 function ButtonsPanel() {
     return (
         <div className="buttons-panel">
-            <button className="start"
+            <button className="btn start"
             type="button">
                 Start Quiz
             </button>
-            <button className="stats"
+            <button className="btn stats"
             type="button">
                 Show Statistics
             </button>
