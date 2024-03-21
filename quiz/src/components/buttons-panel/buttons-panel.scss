@@ -10,20 +10,17 @@
 }
 
 .btn {
-box-shadow: 0 12px 0 rgb(71, 69, 169);
-transition: all 1 ease;
   &:hover {
-    box-shadow: 0 8px 0 rgb(49, 96, 197);
-    transform: translateY(4px)
+    transform: translateY(4px);
   }
   @include button-styles(
+    $button-small,
     $button-primary-color,
     #fff,
     $button-small,
     $button-border-radius
   );
-  @include text-styles(
-    $text-large,
-    $text-primary-color
-  );
+  @include text-styles($text-large, $text-primary-color);
+  display: flex;
+  align-items: center;
 }

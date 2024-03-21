@@ -1,7 +1,8 @@
-@mixin button-styles($background-color, $color, $padding, $border-radius) {
+@mixin button-styles($button-height, $background-color, $color, $button-padding, $border-radius) {
+    height: $button-height;
     background-color: $background-color;
     color: $color;
-    padding: $padding;
+    padding: $button-padding;
     border-radius: $border-radius;
     border: none;
     cursor: pointer;
