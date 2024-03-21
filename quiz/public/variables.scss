@@ -9,7 +9,10 @@ $button-small: 20px;
 $button-medium: 40px;
 $button-large: 50px;
 
-$button-border-radius: 5px;
+//border radiuses
+$border-radius-small: 5px;
+$border-radius-medium: 10px;
+$border-radius-large: 15px;
 
 // text sizes
 $text-small: 14px;
@@ -22,18 +25,15 @@ $text-primary-color: #fff;
 $text-secondary-color: #666;
 $text-accent-color: #007bff;
 
-
 // input sizes
 $input-small: 35px;
 $input-medium: 50px;
 $input-large: 100px;
 
-$input-border-color: #007bff;
+$input-border-color: #1d5da1;
 $input-background-color: #fff;
 $input-text-color: #333;
 $input-placeholder-color: #999;
-
-$input-border-radius: 3px;
 
 // select sizes
 $select-small: 35px;

@@ -22,10 +22,9 @@
     color: $color;
 }
 
-@mixin input-styles($input-width, $input-border-color, $border-radius) {
+@mixin input-styles($input-width, $input-border-color) {
     width: $input-width;
     border-color: $input-border-color;
-    border-radius: $border-radius;
 }
 
 @mixin select-styles($select-width, $select-border-color, $select-radius) {
@@ -33,6 +32,16 @@
     padding: 8px 12px;
     font-size: 16px;
     border: 1px solid $select-border-color;
-    border-radius: 5px;
+    border-radius: $select-radius;
     width: $select-width;
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 6"%3E%3Cpath fill="%23999" d="M4 6L0 0h8z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 8px 6px;
+    &:hover {
+        border-color: #999;
+    }
+    &:focus{
+        outline: none;
+    }
 }

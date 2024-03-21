@@ -18,7 +18,7 @@
     $button-primary-color,
     #fff,
     $button-small,
-    $button-border-radius
+    $border-radius-medium
   );
   @include text-styles($text-large, $text-primary-color);
   display: flex;

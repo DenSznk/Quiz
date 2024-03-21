@@ -28,10 +28,10 @@
 
     }
     select {
-        @include input-styles(
+        @include select-styles(
             $input-large,
             $input-border-color,
-            $input-border-radius
+            $border-radius-small
         )
 
     }
