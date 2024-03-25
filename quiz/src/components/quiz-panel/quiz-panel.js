@@ -1,8 +1,9 @@
 import "./quiz-panel.scss"
-
+import ButtonsPanel from "../buttons-panel/buttons-panel"
 function QuizPanel() {
     return (
         <div className="quiz-panel">
+          <div className="quiz-settings">
           <div className="container">
           <label className="number-of-questions"> Number of Questions
                 <select className="select">
@@ -45,6 +46,8 @@ function QuizPanel() {
                     </select>
                 </label>
             </div>
+          </div>
+            <ButtonsPanel/>
         </div>
     )
 }

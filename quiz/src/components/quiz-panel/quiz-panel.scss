@@ -1,7 +1,7 @@
 @import "../../../public/variables";
 @import "../../../public/mixins";
 
-.quiz-panel {
+.quiz-settings {
     @include text-styles(
         $text-large,
         $text-primary-color
