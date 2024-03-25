@@ -1,0 +1,15 @@
+@import "../../../public/variables";
+@import "../../../public/mixins";
+
+
+.result-block {
+    @include text-styles(
+        $text-large,
+        $text-primary-color
+      );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #599adf;
+    border-radius: 5px;
+}
