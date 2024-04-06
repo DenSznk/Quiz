@@ -1,29 +1,26 @@
 import "./quiz-panel.scss"
 import ButtonsPanel from "../buttons-panel/buttons-panel"
 function QuizPanel() {
+    const createNumberOptions = () => {
+        const options = [];
+        for (let i = 5; i <= 15; i++) {
+          options.push(<option key={i} value={i}>{i}</option>);
+        }
+        return options;
+      };
     return (
         <div className="quiz-panel">
           <div className="quiz-settings">
           <div className="container">
           <label className="number-of-questions"> Number of Questions
                 <select className="select">
-                    <option value="value1">5</option>
-                    <option value="value2">6</option>
-                    <option value="value3">7</option>
-                    <option value="value1">8</option>
-                    <option value="value2">9</option>
-                    <option value="value3">10</option>
-                    <option value="value1">11</option>
-                    <option value="value2">12</option>
-                    <option value="value3">13</option>
-                    <option value="value3">14</option>
-                    <option value="value3">15</option>
+                   {createNumberOptions}
                 </select>
             </label>
           </div>
             <div className="container">
                 <label className="category"> Category
-                        <select className="select"></select>
+                    <select className="select"></select>
                 </label>
            </div>
            <div className="container">
