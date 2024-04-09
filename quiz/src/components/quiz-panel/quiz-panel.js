@@ -14,7 +14,7 @@ function QuizPanel() {
           <div className="container">
           <label className="number-of-questions"> Number of Questions
                 <select className="select">
-                   {createNumberOptions}
+                   {createNumberOptions()}
                 </select>
             </label>
           </div>
