@@ -2,14 +2,28 @@
 @import "../../../public/mixins";
 
 
+.result {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+}
+
 .result-block {
     @include text-styles(
         $text-large,
         $text-primary-color
       );
+    width: 80%;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #599adf;
     border-radius: 5px;
+}
+
+.result-block h3 {
+  line-height: 1.2;
 }

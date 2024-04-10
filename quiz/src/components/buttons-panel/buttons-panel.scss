@@ -11,7 +11,7 @@
 }
 
 .btn {
-  &:hover {
+  &:active {
     transform: translateY(4px);
   }
   @include button-styles(
