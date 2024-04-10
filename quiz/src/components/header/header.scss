@@ -4,17 +4,11 @@
 .header {
   @include text-styles($text-large, $text-primary-color);
   background-color: #599adf;
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 768px) {
-    margin: 10px;
-  }
-
-  @media only screen and (max-width: 480px) {
-    margin: 10px;
-  }
 }
 
 .header-content {

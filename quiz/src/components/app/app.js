@@ -4,6 +4,7 @@ import "./app.scss";
 import Header from "../header/header";
 import QuizPanel from "../quiz-panel/quiz-panel";
 import ResultScreen from "../result-screen/result-screen";
+import Statistics from "../statistics/statistics"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<QuizPanel />} />
         <Route path="/results" element={<ResultScreen />} />
+        <Route path='/statistics' element={<Statistics />}/>
       </Routes>
     </div>
   );
