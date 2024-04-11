@@ -1,0 +1,94 @@
+@import "../../../public/variables";
+@import "../../../public/mixins";
+
+.quiz-block {
+    @include text-styles(
+        $text-large,
+        $text-primary-color
+      );
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    background-color: #599adf;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #2e353d;
+
+    .container {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+}
+
+.btn-white {
+    @include text-styles($text-large, $text-primary-color);
+
+  }
+
+.quiz-header {
+    display: flex;
+}
+
+.timer {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #599adf;
+  }
+
+.buttons-panel {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #599adf;
+}
+
+.answers {
+    @include text-styles(
+        $text-large,
+        $text-primary-color
+      );
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.answer {
+    padding: 5px;
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    color: #599adf
+}
+.question {
+    text-align: center;
+}
+
+.true-false {
+    text-align: center;
+}

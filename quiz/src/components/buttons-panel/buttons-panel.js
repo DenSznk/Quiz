@@ -8,6 +8,7 @@ function ButtonsPanel() {
     return (
         <div className="buttons-panel">
             <button className="btn start"
+            onClick={() => navigate('/quiz')}
             type="button">
                 Start Quiz
             </button>
