@@ -1,6 +1,16 @@
 import "./quiz.scss";
+import Modal from '../modal/modal'
+import {useState} from 'react'
 
 function Quiz() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true)
+    }
+    const handleCloseModal = () => {
+        setIsModalOpen(false)
+    }
   return (
     <>
       <div className="quiz-block">
@@ -53,8 +63,9 @@ function Quiz() {
         </div>
       </div>
       <div className="buttons">
-        <button className="btn">End Quiz</button>
+        <button className="btn" onClick={handleOpenModal}>End Quiz</button>
       </div>
+      {isModalOpen && <Modal onClose={handleCloseModal}/>}
     </>
   );
 }
