@@ -1,6 +1,10 @@
 import './buttons-panel.scss'
+import {useNavigate} from 'react-router-dom'
 
 function ButtonsPanel() {
+
+    const navigate = useNavigate();
+
     return (
         <div className="buttons-panel">
             <button className="btn start"
@@ -8,7 +12,7 @@ function ButtonsPanel() {
                 Start Quiz
             </button>
             <button className="btn stats"
-            type="button">
+            type="button" onClick={() => navigate('/statistics')}>
                 Show Statistics
             </button>
         </div>
