@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     background-color: #599adf;
     padding: 20px;
     border-radius: 10px;
@@ -20,13 +20,16 @@
     .container {
         display: flex;
         padding: 10px;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+
     }
 
     label {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        justify-content: center;
 
     }
     select {

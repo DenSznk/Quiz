@@ -32,20 +32,21 @@ ha3
 + Upon pressing “Confirm” button we need to navigate user back to configuration screen
 - After answering the last question or if timer ends on the main quiz screen, we need to navigate users to the result screen
 + On the result screen upon pressing the “Choose another quiz” button we need to navigate users to quiz configuration screen
-- On the result screen upon pressing the “Restart quiz” button we need to navigate users to main quiz screen and restart current quiz (with mock data for now)
++ On the result screen upon pressing the “Restart quiz” button we need to navigate users to main quiz screen and restart current quiz (with mock data for now)
 + On the configuration scream upon pressing the “See my statistics” button we need to navigate to the newly created empty statistics screen
 
 ha4
 In this homework we will start adding our logic to the application as well as global state manager. We need to do following things:
 
-Add Redux Toolkit to our dependencies
-Upon choosing configuration we need to save this configuration to Redux store (slice) and send a request to Quiz API to get questions with answers before navigating to main quiz screen
-After user finishes the quiz (by answering all the questions or running out of time) and we navigate him to quiz result screen, we should show quiz results, as described in Homework #3
-After user presses “Choose another quiz” button on the result screen we need to clear questions data from Redux store (questions, answers and configuration) before navigating users to configuration screen
-After user presses “Restart quiz” button we need to send one more API request to get new bunch of questions with same configuration (that we previously stored in Redux store) before navigating users to main quiz screen to restart the quiz with new questions
++ Add Redux Toolkit to our dependencies
+- Upon choosing configuration we need to save this configuration to Redux store (slice) and send a request to Quiz API to get questions with answers before navigating to main quiz screen
+- After user finishes the quiz (by answering all the questions or running out of time) and we navigate him to quiz result screen, we should show quiz results, as described in Homework #3
+- After user presses “Choose another quiz” button on the result screen we need to clear questions data from Redux store (questions, answers and configuration) before navigating users to configuration screen
+- After user presses “Restart quiz” button we need to send one more API request to get new bunch of questions with same configuration (that we previously stored in Redux store) before navigating users to main quiz screen to restart the quiz with new questions
 
 ha5
-In this homework we will add additional logic for after users finish their quiz. We will work on statistics data for our quiz app. Every time users finish their quiz we will take their data and save it in our Redux store, so that they can review that data later in the statistics screen. In order for this to work we need to add persistence to our Redux store. For this we can use redux-persist library. We need to persist only statistics slices, questions or configuration slices do not need to be persisted. In this homework we need to add following things:
+In this homework we will add additional logic for after users finish their quiz. We will work on statistics data for our quiz app.
+- Every time users finish their quiz we will take their data and save it in our Redux store, so that they can review that data later in the statistics screen. In order for this to work we need to add persistence to our Redux store. For this we can use redux-persist library. We need to persist only statistics slices, questions or configuration slices do not need to be persisted. In this homework we need to add following things:
 
 Add number of questions that user took in this quiz to overall number of questions user took
 Add number of correct questions that this user got to overall number of correct questions for this user
