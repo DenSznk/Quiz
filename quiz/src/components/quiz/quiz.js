@@ -57,8 +57,8 @@ function Quiz() {
             </p>
           </div>
           <buttons className="buttons-panel">
-            <button className="btn btn-white">True</button>
-            <button className="btn btn-white">False</button>
+            <button className="btn-white">True</button>
+            <button className="btn-white">False</button>
           </buttons>
         </div>
       </div>
