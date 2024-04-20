@@ -5,12 +5,32 @@ import {
   setQuestionsType,
   setQuizTime,
   setQuizDifficulties,
+  setQuestionCategory,
+  fetchCategories,
 } from "../../features/settings/settingsSlice";
 import "./quiz-panel.scss";
 import ButtonsPanel from "../buttons-panel/buttons-panel";
+import { useEffect } from "react";
 
 function QuizPanel() {
   const dispatch = useDispatch();
+
+  //Questions categories handling
+  const questionsCategories = useSelector(
+    (state) => state.settings.questionsCategories
+  );
+  // Take selected category from store
+  const selectedCategory = useSelector(
+    (state) => state.settings.selectedQuestionCategory
+  );
+  const handleQuestionsCategory = (event) => {
+    dispatch(setQuestionCategory(event.target.value));
+  };
+
+  useEffect(() => {
+    console.log('from effect');
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   //Question amount handling
   const questionsAmount = useSelector(
@@ -40,19 +60,24 @@ function QuizPanel() {
     dispatch(setQuizTime(event.target.value));
   };
 
-  console.log(quizTime);
-  console.log(quizDifficulties);
-  console.log(questionType);
-  console.log(questionsAmount);
-
   return (
     <div className="quiz-panel">
       <div className="quiz-settings">
         <div className="container">
           <label className="category">
-            {" "}
             Category
-            <select className="select"></select>
+            <select
+              className="select"
+              onChange={handleQuestionsCategory}
+              value={selectedCategory}
+            >
+              <option value="">Any Category</option>
+              {questionsCategories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
           </label>
         </div>
         <div className="container">

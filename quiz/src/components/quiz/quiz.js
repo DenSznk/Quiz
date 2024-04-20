@@ -1,73 +1,68 @@
 import "./quiz.scss";
-import Modal from '../modal/modal'
-import {useState} from 'react'
+import Modal from "../modal/modal";
+import {
+  setModalOpen,
+  setIncreaseIndex,
+  setInitialIndex,
+  setIncreaseScore,
+} from "../../features/settings/settingsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Quiz() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const modalOpen = useSelector((state) => state.settings.modalOpen);
+  const questions = useSelector((state) => state.settings.questions);
+  const index = useSelector((state) => state.settings.questionIndex);
+  const navigate = useNavigate();
+  const currentQuestion = questions[index];
 
-    const handleOpenModal = () => {
-        setIsModalOpen(true)
-    }
-    const handleCloseModal = () => {
-        setIsModalOpen(false)
-    }
-  return (
-    <>
-      <div className="quiz-block">
-        <h3 className="quiz-header">Quiz</h3>
-        <div className="quiz-questions-block">
-          <div className="timer">00:00</div>
-          <div className="question">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Reprehenderit vel voluptates, nesciunt nobis nisi ea deserunt,
-              tempora aliquam magnam impedit, architecto illum ducimus
-              consequuntur voluptas excepturi repellat quisquam culpa sunt!
-            </p>
-          </div>
-          <div className="answers">
-            <div className="answer">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam et
-              officia debitis repudiandae beatae accusantium animi placeat
-              voluptatum laboriosam reiciendis aut modi distinctio expedita
-              voluptate, aliquam minima sunt sequi reprehenderit?
-            </div>
-            <div className="answer">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Consequatur libero vel, cupiditate illo nisi ducimus aliquam,
-              optio quaerat ab dolore cum, saepe temporibus aperiam ullam
-              consectetur sit facilis impedit? Corporis!
-            </div>
-            <div className="answer">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo,
-              nisi exercitationem? Corrupti recusandae, numquam blanditiis quas
-              nihil neque nobis inventore provident dolore beatae alias atque
-              repudiandae voluptates debitis laborum a.
-            </div>
-            <div className="answer">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-              doloribus ducimus fuga ex aut, adipisci asperiores nobis minima
-              velit laboriosam esse, dolorum nemo enim, nostrum natus
-              reiciendis. Cum, iste sint!
-            </div>
-          </div>
-          <div className="question">
-            <p>
-              True/false question Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-          <buttons className="buttons-panel">
-            <button className="btn-white">True</button>
-            <button className="btn-white">False</button>
-          </buttons>
+  const combinedAnswers = [...currentQuestion.incorrect_answers];
+  const correctAnswer = currentQuestion.correct_answer;
+  const randomIndex = Math.floor(Math.random() * (combinedAnswers.length + 1));
+  combinedAnswers.splice(randomIndex, 0, correctAnswer)
+
+const handleModalOpen = () => {
+  dispatch(setModalOpen(true));
+};
+const handleModalClose = () => {
+  dispatch(setModalOpen(false));
+};
+
+const handleChoice = (e) => {
+  dispatch(setIncreaseIndex())
+
+  if (e.target.textContent === correctAnswer) {
+    dispatch(setIncreaseScore());
+  }
+  if (index >= questions.length - 1) {
+    dispatch(setInitialIndex())
+    navigate('/results')
+  }
+}
+return (
+  <>
+    <div className="quiz-block">
+      <h3 className="quiz-header">Quiz</h3>
+      <div className="quiz-questions-block">
+        <div className="timer">00:00</div>
+        <div className="question">
+          <p>{questions[index].question}</p>
+        </div>
+        <div className="answers">
+          {combinedAnswers.map((answer, idx) => (
+            <div key={idx} className="answer" onClick={handleChoice}>{answer}</div>
+          ))}
         </div>
       </div>
-      <div className="buttons">
-        <button className="btn" onClick={handleOpenModal}>End Quiz</button>
-      </div>
-      {isModalOpen && <Modal onClose={handleCloseModal}/>}
-    </>
-  );
+    </div>
+    <div className="buttons">
+      <button className="btn" onClick={handleModalOpen}>
+        End Quiz
+      </button>
+    </div>
+    {modalOpen && <Modal closeModal={handleModalClose} />}
+  </>
+);
 }
-
 export default Quiz;
