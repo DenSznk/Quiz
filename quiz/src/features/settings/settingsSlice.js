@@ -22,11 +22,9 @@ export const settingsSlice = createSlice({
   initialState: {
     questionsAmount: "10",
     questionType: "",
-    quizTime: "1",
     quizDifficulties: "",
     questionsCategories: [],
     selectedQuestionCategory: "",
-    modalOpen: false,
     questions: [],
     questionIndex: 0,
     score: 0,
@@ -43,9 +41,6 @@ export const settingsSlice = createSlice({
     },
     setInitialIndex(state) {
       state.questionIndex = 0;
-    },
-    setModalOpen(state, action) {
-      state.modalOpen = action.payload;
     },
     setQuestionCategory(state, action) {
       state.selectedQuestionCategory = action.payload;
@@ -70,10 +65,6 @@ export const settingsSlice = createSlice({
         : "";
     },
 
-    setQuizTime: (state, action) => {
-      state.quizTime = action.payload;
-    },
-
     setQuizDifficulties: (state, action) => {
       const validTypes = ["easy", "medium", "hard", ""];
       state.quizDifficulties = validTypes.includes(action.payload)
@@ -96,9 +87,7 @@ export const {
   setQuestionCategory,
   setQuestionsAmount,
   setQuestionsType,
-  setQuizTime,
   setQuizDifficulties,
-  setModalOpen,
   setQuestions,
   setInitialIndex,
   setIncreaseIndex,

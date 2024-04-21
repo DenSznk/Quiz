@@ -1,17 +1,22 @@
 import "./quiz.scss";
+import Timer from "../timer/timer"
 import Modal from "../modal/modal";
 import {
-  setModalOpen,
   setIncreaseIndex,
   setInitialIndex,
   setIncreaseScore,
 } from "../../features/settings/settingsSlice";
+import {
+  setInitialSeconds,
+  resetTimer
+} from '../../features/timer/timerSlice'
+import {setModalOpen } from "../../features/modal/modalSlice"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Quiz() {
   const dispatch = useDispatch();
-  const modalOpen = useSelector((state) => state.settings.modalOpen);
+  const modalOpen = useSelector((state) => state.modal.modalOpen);
   const questions = useSelector((state) => state.settings.questions);
   const index = useSelector((state) => state.settings.questionIndex);
   const navigate = useNavigate();
@@ -31,12 +36,13 @@ const handleModalClose = () => {
 
 const handleChoice = (e) => {
   dispatch(setIncreaseIndex())
-
   if (e.target.textContent === correctAnswer) {
     dispatch(setIncreaseScore());
   }
   if (index >= questions.length - 1) {
     dispatch(setInitialIndex())
+    dispatch(setInitialSeconds())
+    dispatch(resetTimer())
     navigate('/results')
   }
 }
@@ -45,7 +51,7 @@ return (
     <div className="quiz-block">
       <h3 className="quiz-header">Quiz</h3>
       <div className="quiz-questions-block">
-        <div className="timer">00:00</div>
+      <Timer/>
         <div className="question">
           <p>{questions[index].question}</p>
         </div>

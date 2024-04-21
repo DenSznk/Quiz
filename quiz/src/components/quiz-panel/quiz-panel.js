@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setQuestionsAmount,
   setQuestionsType,
-  setQuizTime,
   setQuizDifficulties,
   setQuestionCategory,
   fetchCategories,
 } from "../../features/settings/settingsSlice";
+import {setMinutes} from '../../features/timer/timerSlice'
 import "./quiz-panel.scss";
 import ButtonsPanel from "../buttons-panel/buttons-panel";
 import { useEffect } from "react";
@@ -55,9 +55,13 @@ function QuizPanel() {
   };
 
   //Quiz Time handling
-  const quizTime = useSelector((state) => state.settings.quizTime);
-  const handleQuizTime = (event) => {
-    dispatch(setQuizTime(event.target.value));
+  // const quizTime = useSelector((state) => state.settings.quizTime);
+  // const handleQuizTime = (event) => {
+  //   dispatch(setQuizTime(event.target.value));
+  // };
+  const quizMinutes = useSelector((state) => state.timer.minutes);
+  const handleQuizMinutes = (event) => {
+    dispatch(setMinutes(event.target.value));
   };
 
   return (
@@ -114,8 +118,8 @@ function QuizPanel() {
             Time
             <select
               className="select"
-              value={quizTime}
-              onChange={handleQuizTime}
+              value={quizMinutes}
+              onChange={handleQuizMinutes}
             >
               <option value="1">1 minute</option>
               <option value="2">2 minutes</option>

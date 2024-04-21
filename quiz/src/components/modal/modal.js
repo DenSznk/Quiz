@@ -1,6 +1,6 @@
 import "./modal.scss";
 import { useNavigate } from "react-router-dom";
-import { setModalOpen } from '../../features/settings/settingsSlice';
+import { setModalOpen } from '../../features/modal/modalSlice';
 import { useDispatch } from "react-redux";
 
 function Modal() {
